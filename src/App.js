@@ -1,9 +1,13 @@
+
 import logo from './logo.svg';
 import {Navbar, NavbarBrand} from 'reactstrap';
 import Menu from './components/MenuComponent';
 import './App.css';
+import { render } from '@testing-library/react';
 
 function App() {
+
+
   return (
     <div className="App">
       <Navbar dark color = "primary">
@@ -15,6 +19,7 @@ function App() {
     
     </div>
   );
+  
 }
 
 export default App;
