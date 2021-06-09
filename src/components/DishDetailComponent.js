@@ -12,7 +12,7 @@ class DishDetail extends Component{
                       {array.map( item =>
                         <Media list className = "list-unstyled">
                                 <Media header>{item.comment}</Media>
-                                <Media body>-- {item.author} , {item.date}</Media>
+                                <Media body>-- {item.author} , {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(item.date)))}</Media>
                             
                         </Media>        
                       )}
