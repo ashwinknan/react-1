@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardText, Media} from 'reactstrap';
 
-class DishDetail extends Component{
+
     // render the comments of the array
-    renderComments(array){
+    function RenderComments({array}){
         if(array.length !== null){
                 return(
                   <div className = "col-12 col-md-5 m-1">
@@ -26,7 +26,7 @@ class DishDetail extends Component{
     }
 
     // render the dish
-    renderDish(dish){
+    function RenderDish({dish}){
         if(dish != null){
             return(
                 <Card className = "col-12 col-md-5 m-1">
@@ -44,13 +44,13 @@ class DishDetail extends Component{
         }
     }
 
-    render(){
+    const DishDetail = (props) => {
         var dishToRender;
-        if(this.props.dish){
+        if(props.dish){
             dishToRender = (
                 <div className = "row">
-                    {this.renderDish(this.props.dish)}
-                    {this.renderComments(this.props.dish.comments)}
+                    <RenderDish dish = {props.dish}/>
+                    <RenderComments array = {props.dish.comments} />
                 </div>
             )
         }
@@ -63,6 +63,6 @@ class DishDetail extends Component{
             </div>
         );
     }
-}
+
 
 export default DishDetail;
